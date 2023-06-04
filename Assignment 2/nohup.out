@@ -1,0 +1,1 @@
+./Running.sh: line 63: 18561 Killed: 9               python3 locAl_Q4.py -m 1 -s 10 -d -1 -a p4pairs.txt > Q4_alignment.txt
