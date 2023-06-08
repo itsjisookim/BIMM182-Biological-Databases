@@ -21,11 +21,14 @@ This file utilizes isotopes provided at (https://www.britannica.com/science/isot
 Input:
 SLAMMER
 Output:
-
+SLAMMER_isotopeProfile.csv
 
 Question4.py
-Input
+This file is an edited algorithm of Question3.py where abundance dictionary is altered so that 50% of C-12 is modified to C-13
+Input:
+SLAMMER
 Output:
+SLAMMER_isotopeProfile_0.5_C-12.csv
 
 
 

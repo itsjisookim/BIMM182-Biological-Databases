@@ -108,7 +108,7 @@ def CpGpotential(S, Islands, CPG_HMM, non_CPG_HMM, outfile):
             stat='false negative'
         line = [str(x) for x in [i[0], i[-1], P_CPG, P_non_CPG, potential, stat]]
         FINAL.append(line)
-        temp = [str(x) for x in [start, i[0], stat]]
+        temp = [str(x) for x in [i[0], i[-1], stat]]
         out.write('\t'.join(temp)+ '\n')
         start=i[-1] #relocate pointer
 
@@ -126,7 +126,7 @@ def CpGpotential(S, Islands, CPG_HMM, non_CPG_HMM, outfile):
                 stat='true negative'
             line = [str(x) for x in [i[-1], len(S), P_CPG, P_non_CPG, potential, stat]]
             FINAL.append(line)
-            temp = [str(x) for x in [start, i[0], stat]]
+            temp = [str(x) for x in [i[-1], len(S), stat]]
             out.write('\t'.join(temp) + '\n')
     out.close()
     df = pd.DataFrame(FINAL, columns=['Start', 'End', 'P(CPG)', 'P(nonCPG)', 'CPG Potential', 'stat'])

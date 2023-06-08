@@ -44,15 +44,25 @@ def ISOprofile(peptide):
     for j in range(len(formula)):
         abundance = ISOtable(order[j])
         #print(order[j], formula[j], abundance)
-        coeff = [0 if a<0.1 else a/100 for a in abundance]
+        coeff = [0 if a<0.1 else a/100 for a in abundance] #remove any abundance <0.1% while still being a placeholder for the polynomial
+        '''
+        while len(coeff) != 0:
+            if coeff[0] == 0:
+                coeff = coeff.pop(0)
+            else:
+                break
+        '''
         p = np.poly1d(coeff[::-1])
         print(order[j], len(p**formula[j]))
+        if order[j] == 'S':
+            print(np.poly1d(p**formula[j]))
         final = final*(p**formula[j])
 
     
     FINAL_coeff = list(final)[::-1]
     df = pd.DataFrame(FINAL_coeff, columns = ['Peak Coefficient'])
     df.to_csv(peptide+'_isotopeProfile.csv')
+    return df
     
 
 ####
